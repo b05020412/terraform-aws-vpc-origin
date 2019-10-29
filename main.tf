@@ -280,11 +280,11 @@ resource "aws_subnet" "private" {
 
   tags = merge(
     {
-      "Name" = format(
+      "Name" = title(format(
         "%s-${var.private_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ))
     },
     var.tags,
     var.private_subnet_tags,
@@ -303,11 +303,11 @@ resource "aws_subnet" "database" {
 
   tags = merge(
     {
-      "Name" = format(
+      "Name" = title(format(
         "%s-${var.database_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ))
     },
     var.tags,
     var.database_subnet_tags,
